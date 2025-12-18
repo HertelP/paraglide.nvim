@@ -35,7 +35,10 @@ Enable the paraglide.nvim plugin.
 ### `settings` (attribute set)
 
 #### `project_root` (string, default: "vim.fn.getcwd()")
-Directory containing the `.inlang` folder with translation files.
+Project root directory. Should be set to the root of your Paraglide.js project.
+
+#### `messages_dir` (string, default: nil)
+Path to the messages directory relative to `project_root`. If not set, the plugin will auto-detect `.inlang/messages` or `messages/` directories.
 
 #### `default_locale` (string, default: "en")
 The default locale to display translations for.

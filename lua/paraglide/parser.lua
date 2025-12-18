@@ -2,13 +2,46 @@ local M = {}
 
 local config = require("paraglide.config")
 
----Load all translation files from .inlang/messages directory
+---Detect messages directory path
+---@return string|nil The path to the messages directory, or nil if not found
+local function detect_messages_dir(project_root)
+  local configured_dir = config.get("messages_dir")
+  
+  -- If explicitly configured, use that
+  if configured_dir then
+    return project_root .. "/" .. configured_dir
+  end
+  
+  -- Try .inlang/messages first (standard Paraglide.js location)
+  local inlang_messages = project_root .. "/.inlang/messages"
+  local handle = vim.loop.fs_scandir(inlang_messages)
+  if handle then
+    vim.loop.fs_scandir_next(handle) -- close the handle
+    return inlang_messages
+  end
+  
+  -- Try messages/ as fallback
+  local simple_messages = project_root .. "/messages"
+  handle = vim.loop.fs_scandir(simple_messages)
+  if handle then
+    vim.loop.fs_scandir_next(handle) -- close the handle
+    return simple_messages
+  end
+  
+  return nil
+end
+
+---Load all translation files from messages directory
 ---@return table Table of {locale = {key = translation, ...}, ...}
 function M.load_translations()
   local project_root = config.get("project_root")
-  local messages_dir = project_root .. "/.inlang/messages"
+  local messages_dir = detect_messages_dir(project_root)
 
-  -- Check if .inlang/messages directory exists
+  -- Check if messages directory exists
+  if not messages_dir then
+    return {}
+  end
+  
   local handle = vim.loop.fs_scandir(messages_dir)
   if not handle then
     return {}

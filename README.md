@@ -41,11 +41,15 @@ use {
 
 ```lua
 require("paraglide").setup({
-  -- Directory containing .inlang folder
+  -- Project root directory (default: current working directory)
   project_root = vim.fn.getcwd(),
   
   -- Default locale to display
   default_locale = "en",
+  
+  -- Messages directory (relative to project_root)
+  -- If nil, auto-detects .inlang/messages or messages/
+  messages_dir = nil,
   
   -- Virtual text styling
   virtual_text = {

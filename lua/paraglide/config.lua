@@ -11,6 +11,7 @@ local defaults = {
   },
   auto_update = true,
   filetypes = {},
+  messages_dir = nil, -- If nil, will auto-detect .inlang/messages or messages/
 }
 
 -- Actual configuration (merged with defaults)
