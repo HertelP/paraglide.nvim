@@ -53,13 +53,13 @@ function M.find_message_calls(line)
   local calls = {}
 
   -- Pattern 1: m.messageKey(...) or m["message.key"](...)
-  -- Matches: m.key( or m["key"](
+  -- Matches: m.key(...) or m["key"](...) or m['key'](...)
   local patterns = {
-    -- m.key(...) - simple identifier
-    'b[m]%.([%w_]+)%s*%(',
+    -- m.key(...) - simple identifier with dots (for nested keys)
+    'm%.([%w_%.]+)%s*%(',
     -- m["key"](...) or m['key'](...)
-    'b[m]%[%"([^%"]+)%"%]%s*%(',
-    "b[m]%[%'([^%']+)%'%]%s*%(",
+    'm%[%"([^%"]+)%"%]%s*%(',
+    "m%[%'([^%']+)%'%]%s*%(",
   }
 
   for _, pattern in ipairs(patterns) do

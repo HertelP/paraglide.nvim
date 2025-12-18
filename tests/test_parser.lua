@@ -1,6 +1,9 @@
 -- Test file for parser module
 -- Run with: nvim --headless -c "luafile tests/test_parser.lua"
 
+-- Add the lua directory to package path
+package.path = package.path .. ";/home/hertelp/paraglide.nvim/lua/?.lua"
+
 local parser = require("paraglide.parser")
 
 local function test_find_message_calls()
