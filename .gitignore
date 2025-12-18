@@ -1,0 +1,24 @@
+# Neovim
+.netrwhistory
+
+# Dependencies
+*.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vim
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log

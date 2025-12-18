@@ -1,0 +1,12 @@
+{
+  "hello_world": "Hallo Welt!",
+  "greeting": "Hallo {name}!",
+  "welcome": "Willkommen zu {app}",
+  "user.profile.title": "Benutzerprofil",
+  "user.profile.edit": "Profil bearbeiten",
+  "common.save": "Speichern",
+  "common.cancel": "Abbrechen",
+  "error.not_found": "Die angeforderte Ressource wurde nicht gefunden",
+  "validation.email_required": "E-Mail ist erforderlich",
+  "validation.email_invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+}
