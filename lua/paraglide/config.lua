@@ -6,7 +6,7 @@ local defaults = {
     default_locale = "en",
     virtual_text = {
         enabled = true,
-        prefix = "▸ ",
+        prefix = ": ",
         highlight_group = "Comment",
     },
     auto_update = true,
