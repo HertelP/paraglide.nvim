@@ -9,13 +9,13 @@ console.log(m.greeting({ name: username }));
 
 // In JSX
 export function HomePage() {
-  return (
-    <div>
-      <h1>{m.user.profile.title()}</h1>
-      <p>{m.greeting({ name: "Bob" })}</p>
-      <button>{m.common.save()}</button>
-    </div>
-  );
+    return (
+        <div>
+            <h1>{m.user.profile.title()}</h1>
+            <p>{m.greeting({ name: "Bob" })}</p>
+            <button>{m.common.save()}</button>
+        </div>
+    );
 }
 
 // With parameters
@@ -24,5 +24,5 @@ console.log(m.welcome({ app: appName }));
 
 // Nested in expressions
 if (error) {
-  throw new Error(m.error.not_found());
+    throw new Error(m.error.not_found());
 }
